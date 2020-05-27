@@ -16,7 +16,10 @@ steps:
     RIPS_EMAIL: ${{ secrets.RIPS_EMAIL }}
     RIPS_PASSWORD: ${{ secrets.RIPS_PASSWORD }}
   with:
+    progress: 1
     application-id: 923
+    tag-name: nightly-build
+    version-name: ${{ env.GITHUB_SHA }}
     additional-parameters: -t critical:10 
 ```
 
