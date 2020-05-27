@@ -8,6 +8,12 @@ then
 	RIPS_VERSION_NAME=$(date -Is)
 fi
 
+ARGS_PROFILE=""
+if [ "$RIPS_PROFILE" != "" ]
+then
+	ARGS_PROFILE="-C $RIPS_PROFILE"
+fi
+
 ARGS_TAG=""
 if [ "$RIPS_TAG_NAME" != "" ]
 then
@@ -24,6 +30,7 @@ fi
   -a "${APPLICATION_ID}" \
   -N "${RIPS_VERSION_NAME}" \
   -p "${GITHUB_WORKSPACE}" \
+  ${ARGS_PROFILE} \
   ${ARGS_TAG} \
   -S "ci-github-action" \
   ${ARGS_PROGRESS} \
