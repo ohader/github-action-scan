@@ -6,12 +6,28 @@ inputs:
   application-id:
     description: 'Id of the application the scan belongs to'
     required: true
+  version-name:
+    description: 'Version name to be assigned to scan (e.g. version or Git commit hash)'
+    required: false
+    default: ''
+  tag-name:
+    description: 'Tag name to be assigned to scan (e.g. pull-request)'
+    required: false
+    default: 'github-action'
   additional-parameters:
     description: 'Additional parameters. (https://kb.ripstech.com/doc/latest/tooling/rips-cli)'
+    required: false
+  progress:
+    description: 'Show scan progress'
+    default: 1
     required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env:
+    RIPS_SCAN_PROGRESS: "${{ inputs.progress }}"
+    RIPS_VERSION_NAME: "${{ inputs.version-name }}"
+    RIPS_TAG_NAME: "${{ inputs.tag-name }}"
   args:
     - ${{ inputs.application-id }}
     - ${{ inputs.additional-parameters }}
