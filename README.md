@@ -7,10 +7,10 @@ You can use the following configuration to start a new code analysis with RIPS a
 
 ```yaml
 steps:
-- uses: actions/checkout@v1
+- uses: actions/checkout@v2
   with:
     fetch-depth: 1
-- uses: rips/github-action-scan@v1
+- uses: rips/github-action-scan@v2
   env:
     RIPS_BASE_URI: "https://api-3.ripstech.com"
     RIPS_EMAIL: ${{ secrets.RIPS_EMAIL }}
