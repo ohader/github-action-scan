@@ -3,7 +3,7 @@
 APPLICATION_ID=$1
 shift
 
-if [ "$RIPS_VERSION_NAME" == "" ]
+if [ "$RIPS_VERSION_NAME" = "" ]
 then
 	RIPS_VERSION_NAME=$(date -Is)
 fi
@@ -15,7 +15,7 @@ then
 fi
 
 ARGS_PROGRESS="-G"
-if [ "$RIPS_SCAN_PROGRESS" == "0" ]
+if [ "$RIPS_SCAN_PROGRESS" = "0" ]
 then
 	ARGS_PROGRESS=""
 fi
